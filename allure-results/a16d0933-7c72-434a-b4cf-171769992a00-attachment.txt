@@ -1,0 +1,1 @@
+page load issue: [[ChromeDriver: chrome on windows (719e40fb97ac9addffabadb5966176ef)] -> xpath: //*[@id="tableBody"]/tr/td/a] - Please wait while loading the case

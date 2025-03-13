@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Regression Suite">
+	<listeners>
+		<listener class-name="Patrol.Utility.AllureListeners"></listener>
+	</listeners>
+  <test thread-count="5" name="Full Automation Suite">
+	  
+    <classes>
+		 <class name="Patrol.Test.LoginPageTest"/>
+		   <class name="Patrol.Test.DashBoardTest"/>
+      
+      <class name="Patrol.Test.Patro_ReportTest"/>
+      <class name="Patrol.Test.Patrol_CalendarTest"/>
+      <class name="Patrol.Test.Patrol_CasueListTest"/>
+      <class name="Patrol.Test.Patrol_ChatTest"/>
+      <class name="Patrol.Test.Patrol_CompanyTest"/>
+      <class name="Patrol.Test.Patrol_InvoiceTest"/>
+      <class name="Patrol.Test.Patrol_NotificationTest"/>
+      <class name="Patrol.Test.Patrol_OrderTrack"/>
+      <class name="Patrol.Test.PeopleSearchTest"/>
+      <class name="Patrol.Test.PeopleTest"/>
+      <class name="Patrol.Test.ReportCheck"/>
+      <class name="Patrol.Test.Task_MatterDetailsPage"/>
+      <class name="Patrol.Test.Task"/>
+      <class name="Patrol.Test.OrderTrackerTest"/>
+      <class name="Patrol.Test.OrderTrackerPaginationsTest"/>
+      <class name="Patrol.Test.Notification_Test"/>
+      <class name="Patrol.Test.Notes_MatterDetails"/>
+      <class name="Patrol.Test.MatterForTribunals"/>
+      <class name="Patrol.Test.MatterForSC"/>
+      <class name="Patrol.Test.MatterForHC"/>
+       <class name="Patrol.Test.MatterforDrat"/>
+       
+         <class name="Patrol.Test.InvoiceTest"/>
+          <class name="Patrol.Test.InvoicePaginationTest"/>
+           <class name="Patrol.Test.InvoiceMatterTest"/>
+           <class name="Patrol.Test.DocumentTest"/>
+      
+      <class name="Patrol.Test.Documents_OnMattersDetailsPage"/>
+      
+    
+      <class name="Patrol.Test.checkpagesinvoice"/>
+      
+      <class name="Patrol.Test.checkCaseDetails"/>
+      <class name="Patrol.Test.CheckAllMatters"/>
+      <class name="Patrol.Test.CheckAll_InvoicesMatters"/>
+      <class name="Patrol.Test.CheckAll_AddedFirms"/>
+      <class name="Patrol.Test.AllDocumentTest"/>
+      
+      
+      
+      
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
