@@ -50,11 +50,11 @@ public class CreateNote_Casedetail extends BasePage {
     	
     	Library.threadSleep(2000);
     	WebElement duedate1 = driver.findElement(By.xpath("(//*[@id=\"addForm\"]/div[1]/div/div[3]/div/input)[2]"));
-    	duedate1.sendKeys("20/11/2024");
+    	duedate1.sendKeys("20/01/2025");
     	 
     	Library.threadSleep(2000);
     	WebElement discreption = driver.findElement(By.xpath("(//*[@id=\"addForm\"]/div[1]/div/div[4]/div/input)[1]"));
-    	discreption.sendKeys("testing note on matter details page");
+    	discreption.sendKeys("testing note on Case details page");
     	
     	Library.threadSleep(2000);
     	WebElement savechanges = driver.findElement(By.xpath("(//*[@id=\"addForm\"]/div[2]/button[2])[2]"));
@@ -70,6 +70,8 @@ public class CreateNote_Casedetail extends BasePage {
     		
     		WebElement NoteTab = driver.findElement(By.xpath("//*[@id=\"content\"]/div[1]/div[2]/div/nav/a[5]"));
     		NoteTab.click();
+    		Library.threadSleep(4000);
+        	
     		  try {
     		        String xpath = "//table//tr[td[text()='" + taskname + "']]";
     		        WebElement contactRow = driver.findElement(By.xpath(xpath));

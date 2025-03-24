@@ -38,7 +38,7 @@ public class Task_MatterDetailsPage extends NewBaseTest {
 	    @Severity(SeverityLevel.CRITICAL) 
 	    @Description("This test verifies that the user can add a task on the Matter page.")
 	
-	public void VerifyaddTaskonMatterPage() {
+	public void VerifyaddTaskonMatterPage() throws MessagingException {
 		
 		
 		 try {
@@ -68,22 +68,15 @@ public class Task_MatterDetailsPage extends NewBaseTest {
 	        }  catch (Exception e) {                                                                            
 	        	  Library.addScreenshotToList(driver, "Failure Screenshot");
 	        	    Library.errorUrls.add(driver.getCurrentUrl());
-	        	   System.out.println("Issue in add task");                                          
+	        	   System.out.println("Issue in add task");  
+	        	   String message = "please check Issue coming to create task on matters details page. Please check the attached report.";
+	  	         String subject = "Company Name: " + Library.companyName + ":- Task ON Matters details page";
+	  	         
+	  	         EmailUtility.sendSummaryEmailWithScreenshots(driver, subject, message, Library.errorUrls, Library.screenshotBytesList);
 		    }                                                                                                  
 			}                                                                                               
 		                                                                                                       
-	 @AfterTest
-	 public void sendEmailAfterExecution() throws MessagingException {
-	     if (!Library.errorUrls.isEmpty()) {
-	        // String subject = "All cases -Patrol Automation";
-	         String message = "please check Issue coming to create task on matters details page. Please check the attached report.";
-	         String subject = "Company Name: " + Library.companyName + ":- Task ON Matters details page";
-	         
-	         EmailUtility.sendSummaryEmailWithScreenshots(driver, subject, message, Library.errorUrls, Library.screenshotBytesList);
-	     } else {
-	         System.out.println("Add task in matters details successfully");
-	     }
-	 }
+	
 	
 
 }

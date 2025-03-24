@@ -44,7 +44,7 @@ public class CaseDetail_tasktest extends NewBaseTest {
 		        task.createtask("Task ", "Pending");
 		       
 		        // Verify if matter is added successfully
-		        boolean cratedtask = create.verifymatters("CreateTaskByAutomation");
+		        boolean cratedtask = create.verifyMatter("CreateTaskByAutomation");
 
 		        if (!cratedtask) {
 		            throw new AssertionError("task verification failed!");

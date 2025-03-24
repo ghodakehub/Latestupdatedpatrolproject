@@ -43,9 +43,12 @@ public void allcasedetails() throws InterruptedException, IOException, Messaging
     contact.createcontact("Contact", "Create Contact");
     contact.createcontacts2("Company","AkshayPatra", "8867907760", "abc@gmail.com", "NGO-COMPANY", "Pune");
     
-    boolean verifyNotes =contact.verifyaddcontact("AkshayPatra");
+    boolean verifycontact =contact.verifyaddcontact("AkshayPatra");
 
-    if (!verifyNotes) {
+    if (!verifycontact) {
+    	
+    	Library.addScreenshotToList(driver, "contactfailed.png");
+
     	
         AllureListeners.captureScreenshot(driver, "contact.png");
         String url = driver.getCurrentUrl();
@@ -56,6 +59,7 @@ public void allcasedetails() throws InterruptedException, IOException, Messaging
         String subject = "Company Name: " + Library.companyName + " contact tab";
         
         EmailUtility.sendSummaryEmailWithScreenshots(driver, subject, message, Library.errorUrls, Library.screenshotBytesList);
+        Assert.fail(" Test Failed: Contact creation verification failed!");
     }
 
     Allure.step("Test Case Passed: contact is successfully created and verified.");

@@ -37,7 +37,7 @@ public class ReportCheck  extends NewBaseTest {
 		loginpage.performAction();
 		Allure.step("Step 2: select company navigate to Dashboard");
         DashBoardPage dashBoardpage = new DashBoardPage(driver);
-        dashBoardpage.clickOncompany("Legitquest");
+        dashBoardpage.clickOncompany("Pharma limited");
         Allure.step("Step 3: Verify reports tabs");
         ReportsCheck report =new ReportsCheck(driver);
         report.ClickOnReports();
@@ -56,7 +56,7 @@ public class ReportCheck  extends NewBaseTest {
     public void sendEmailAfterExecution() throws MessagingException {
         if (!Library.errorUrls.isEmpty()) {
             String message = "Please check the Reports. issue is coming while open ReportsTabs  , See the attached url for details.";
-            String subject = "Company Name: " + Library.companyName + " - Invoice";
+            String subject = "Company Name: " + Library.companyName + " - Reports";
 
             // Send email with failed URLs and screenshots
             EmailUtility.sendSummaryEmailWithScreenshots(driver, subject, message, Library.errorUrls, Library.screenshotBytesList);

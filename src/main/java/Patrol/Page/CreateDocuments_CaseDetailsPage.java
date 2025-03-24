@@ -3,6 +3,8 @@ package Patrol.Page;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Patrol.Utility.AllureListeners;
 import Patrol.Utility.Library;
+import io.qameta.allure.Allure;
 
 public class CreateDocuments_CaseDetailsPage extends BasePage {
 
@@ -55,24 +58,26 @@ public class CreateDocuments_CaseDetailsPage extends BasePage {
 
 }
 	
-	public boolean verifydoc(String doc) {
+	public boolean verifydoc(String docName) {
 		
-		WebElement doctab = driver.findElement(By.xpath("//*[@id=\"content\"]/div[1]/div[2]/div/nav/a[4]"));
-		doctab.click();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		
-    WebElement createddoc = wait.until(ExpectedConditions.visibilityOfElementLocated(
-        By.xpath("//*[@id=\"tab1-document\"]/div/div[2]/table/tbody/tr/td[1]/p/a")));
-
-    if (createddoc.isDisplayed()) {
-        System.out.println("Note created successfully and is visible.");
-        return true;
-    }
- else 
- {
-    System.out.println("Failed to create and verify Note!");
-    AllureListeners.captureScreenshot(driver, "Notefailed.png");
-    return false;
-}
-}
+		 
+	           
+	            try {
+	            	 WebElement docTab = driver.findElement(By.xpath("//*[@id=\"content\"]/div[1]/div[2]/div/nav/a[4]"));
+	 	            docTab.click();
+	 	            Library.threadSleep(3000);
+	                String xpath = "//tbody//tr//td//p//a[contains(@href, '" + docName + "')]";
+	                WebElement docLink = driver.findElement(By.xpath(xpath));
+	                
+	                if (docLink.isDisplayed()) {
+	                    System.out.println(" Document link found: " + docLink.getAttribute("href"));
+	                    Allure.step("Validation Passed: Document link is present.");
+	                    return true;
+	                }
+	            } catch (NoSuchElementException e) {
+	                System.out.println("❌ Document link not found.");
+	                Allure.step("Validation Failed: Document link is missing.");
+	            }
+	            return false;
+	        }
 }

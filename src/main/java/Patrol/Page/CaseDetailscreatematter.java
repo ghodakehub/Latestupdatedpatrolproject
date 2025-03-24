@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Patrol.Utility.AllureListeners;
 import Patrol.Utility.Library;
+import io.qameta.allure.Allure;
 
 public class CaseDetailscreatematter extends BasePage {
 
@@ -48,7 +49,7 @@ public class CaseDetailscreatematter extends BasePage {
 	private WebElement opendate;
 	@FindBy (xpath = "//*[@id=\"limitation_date\"]")   
 	private WebElement limitationdate;
-	@FindBy (xpath = "//*[@id=\"matter-billable-check\"]")   
+	@FindBy (xpath = "//input[@type='checkbox'])[16]")   
 	private WebElement matterbilablecheckbox;
 	@FindBy (xpath = "//*[@id=\"billable_type\"]")         
 	private WebElement selecbillabletype;
@@ -70,14 +71,20 @@ public class CaseDetailscreatematter extends BasePage {
              WebElement searchBox = driver.findElement(By.xpath("//*[@id=\"searchInput\"]"));
            
              searchBox.sendKeys(caseName);
-             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-             
-             WebElement caseLink = wait.until(ExpectedConditions.presenceOfElementLocated(
-                 By.xpath("//*[@id=\"tableBody\"]/tr/td/a[contains(text(),'" + caseName + "')]")
-             ));
-             JavascriptExecutor js = (JavascriptExecutor) driver;
-             js.executeScript("arguments[0].click();", caseLink);
+            
+             // Wait until the case link appears
+             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
+                     "//tbody[@id='tableBody']//a[contains(text(),'" + caseName + "')]"
+             )));
 
+             // Click the matching case link
+             WebElement caseLink = driver.findElement(By.xpath(
+                     "//tbody[@id='tableBody']//a[contains(text(),'" + caseName + "')]"
+             ));
+             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", caseLink);
+             
+             caseLink.click();
              System.out.println("Successfully opened case: " + caseName);
 
          } catch (TimeoutException e) {
@@ -145,7 +152,7 @@ public class CaseDetailscreatematter extends BasePage {
 		Library.selectDropDown(selectstatus,status);
 		System.out.println("Selected Status is: "+status);
 		Library.threadSleep(2000);
-		opendate.sendKeys("2/6/2025");
+		opendate.sendKeys("02/06/2025");
 		Library.threadSleep(2000);
 		
 		 Library.scrollTillElementDisplay(driver, locations);
@@ -156,16 +163,28 @@ public class CaseDetailscreatematter extends BasePage {
 		Library.threadSleep(2000);
 	
 		Library.threadSleep(2000);
-		limitationdate.sendKeys("2/8/2025");
-		Library.threadSleep(2000);
-		matterbilablecheckbox .click();
+		limitationdate.sendKeys("02/03/2025");
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
+
+	    // Locate the checkbox and verify if it is already selected
+	    WebElement checkbox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@type='checkbox' and contains(@id, 'billable')]")));
+	    
+	    // Check and click if not selected
+	    if (!checkbox.isSelected()) {
+	        System.out.println("Checkbox is not selected. Clicking to select it.");
+	        checkbox.click();
+	        Allure.step("Checkbox was unchecked. Selected it.");
+	    } else {
+	        System.out.println("Checkbox is already selected.");
+	        Allure.step("Checkbox was already selected.");
+	    }
 			Library.threadSleep(2000);
-			matterbilablecheckbox.click();
-			Library.threadSleep(1000);
 			Library.selectDropDown(selecbillabletype,hours);
 			System.out.println("Selected billable options: "+hours);
-			Library.threadSleep(2000);
+			Library.threadSleep(3000);
 			enterrate.clear();
+			Library.threadSleep(1000);
 			enterrate.sendKeys("3000");
 			Library.threadSleep(2000);
   
@@ -175,30 +194,37 @@ public class CaseDetailscreatematter extends BasePage {
 			  
 			
      }	
-			public boolean verifymatters(String matterName) {
-				
-				WebElement mattertabs = driver.findElement(By.xpath("//*[@id=\"content\"]/div[1]/div[2]/div/nav/a[2]"));
-				mattertabs.click();
-				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-				
-	        WebElement createdMatter = wait.until(ExpectedConditions.visibilityOfElementLocated(
-	            By.xpath("//*[@id=\"tab1\"]/div[1]/div/div[1]/h6")));
-
-	        if (createdMatter.isDisplayed()) {
-	            System.out.println("Matter created successfully and is visible.");
-	            return true;
-	        }
-	     else 
-	     {
-	        System.out.println("Failed to create and verify matter!");
-	        AllureListeners.captureScreenshot(driver, "CreateMatter_Error.png");
-	        return false;
-	    }
-	   
+    	  
+    	  public boolean verifyMatter(String matterName) {
+    		  
+    		  try {
+    		        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    		        
+    		        // Click the Matter tab
+    		        WebElement matterTab = wait.until(ExpectedConditions.elementToBeClickable(
+    		                By.xpath("//*[@id='content']/div[1]/div[2]/div/nav/a[2]")));
+    		        matterTab.click();
+    		        Library.threadSleep(3000);
+    		        // Wait until the Matter's text is loaded
+    		        
+    		        WebElement matterElement = driver.findElement(By.xpath("//*[@id=\"tab1\"]/div[1]/div/div[1]/h6"));
+    		        // Validate by checking the actual text
+    		        if (matterElement.isDisplayed()) {
+    		            System.out.println("Matter Verified successfully : ");
+    		           
+    		            return true;
+    		        }
+    		    } catch (Exception e) {
+    		        System.out.println("Failed to verify matter: " + e.getMessage());
+    		        
+    		    }
+    		    return false;
+    		}
+ 	}
 	
 	
-	 }
-     }
+	 
+     
     
 
 

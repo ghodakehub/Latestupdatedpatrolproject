@@ -34,12 +34,12 @@ public class CreateContact_CaseDetailspage extends BasePage {
 	@FindBy (xpath = "//*[@id=\"content\"]/div/div[2]/button")
 	private WebElement NewPopeple;
 	
-	@FindBy (xpath = "//*[@id=\"addContactForm\"]/div[2]/div[2]/div[1]/div/select")
+	@FindBy (xpath = "//select[contains(@name, 'client_category')]")
 	private WebElement selectPeopleType;
 	
 	
-	@FindBy (xpath = "(//*[@id=\"name\"])[2]")
-	private WebElement EnterpopelName;
+	@FindBy (xpath = "//*[@id=\"company_name\"]")
+	private WebElement Entercompanyname;
 	
 	@FindBy (xpath = "//*[@id=\"phone\"]")
 	private WebElement PhoneNumber;
@@ -87,15 +87,15 @@ public class CreateContact_CaseDetailspage extends BasePage {
     	if(childwin.equalsIgnoreCase(parentwindowid))
     	{
     		driver.switchTo().window(childwin);
-    		 
+    		Library.threadSleep(1000);
     		 selectPeopleType.click();
     		 selectPeopleType.sendKeys(selecttype);
-    		 selectPeopleType.sendKeys(Keys.ARROW_DOWN);
-    		 selectPeopleType.sendKeys(Keys.ENTER);
-    			Library.threadSleep(2000);
+    		// selectPeopleType.sendKeys(Keys.ARROW_DOWN);
+    		// selectPeopleType.sendKeys(Keys.ENTER);
+    		//	Library.threadSleep(2000);
     			
-    			 Library.threadSleep(2000);
-        		 Library.sendKeys(driver, EnterpopelName, "Enter people name :", name);
+    			 Library.threadSleep(3000);
+        		 Library.sendKeys(driver, Entercompanyname, "Enter company name :", name);
         		 Library.threadSleep(2000);
         		 
     				
@@ -124,14 +124,17 @@ public class CreateContact_CaseDetailspage extends BasePage {
 		 selectexstingcontact.click();
 		 Library.threadSleep(5000);
 		 Library.selectDropDown(selectexstingcontact, SelectcontactFromdropdown);
-		 Library.threadSleep(2000);
+		 Library.threadSleep(3000);
 		 WebElement savebtn = driver.findElement(By.xpath("//*[@id=\"addTabExistingContact\"]"));
 		 savebtn.click();
-		 Library.threadSleep(2000);
+		 Library.threadSleep(6000);
 	}
 
 		
 public boolean verifyaddcontact(String contactName) {
+	     WebElement contatcttab = driver.findElement(By.xpath("//*[@id=\"content\"]/div[1]/div[2]/div/nav/a[6]"));
+	     contatcttab.click();
+	     Library.threadSleep(2000);
     try {
         String xpath = "//table//tr[td[text()='" + contactName + "']]";
         WebElement contactRow = driver.findElement(By.xpath(xpath));

@@ -2,28 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-03-12T18:02:53 IST" name="Default suite" finished-at="2025-03-12T18:03:33 IST" duration-ms="40639">
+  <suite started-at="2025-03-24T13:02:17 IST" name="Default suite" finished-at="2025-03-24T13:03:41 IST" duration-ms="83861">
     <groups>
     </groups>
-    <test started-at="2025-03-12T18:02:53 IST" name="Default test" finished-at="2025-03-12T18:03:33 IST" duration-ms="40639">
-      <class name="Patrol.Test.exstingContact_casedetailspage">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Patrol.Test.exstingContact_casedetailspage@2ff95fc6]" started-at="2025-03-12T18:02:53 IST" name="launchBrowser" finished-at="2025-03-12T18:02:58 IST" duration-ms="5109" status="PASS">
+    <test started-at="2025-03-24T13:02:17 IST" name="Default test" finished-at="2025-03-24T13:03:41 IST" duration-ms="83861">
+      <class name="Patrol.Test.RelatedMattersforHC">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Patrol.Test.RelatedMattersforHC@3d43fe]" started-at="2025-03-24T13:02:17 IST" name="launchBrowser" finished-at="2025-03-24T13:02:22 IST" duration-ms="4993" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method signature="allcasedetails()[pri:0, instance:Patrol.Test.exstingContact_casedetailspage@2ff95fc6]" started-at="2025-03-12T18:02:58 IST" name="allcasedetails" description="Verify All Contact tab on case details page for high court Cases" finished-at="2025-03-12T18:03:33 IST" duration-ms="34952" status="PASS">
+        <test-method signature="verifyInvoice()[pri:0, instance:Patrol.Test.RelatedMattersforHC@3d43fe]" started-at="2025-03-24T13:02:22 IST" name="verifyInvoice" description="Verify case details Invoice tab for Supreme courts" finished-at="2025-03-24T13:03:40 IST" duration-ms="77967" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- allcasedetails -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Patrol.Test.exstingContact_casedetailspage@2ff95fc6]" started-at="2025-03-12T18:03:33 IST" name="closeBrowser" finished-at="2025-03-12T18:03:33 IST" duration-ms="270" status="PASS">
+        </test-method> <!-- verifyInvoice -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Patrol.Test.RelatedMattersforHC@3d43fe]" started-at="2025-03-24T13:03:40 IST" name="closeBrowser" finished-at="2025-03-24T13:03:41 IST" duration-ms="524" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-        <test-method is-config="true" signature="sendEmailAfterExecution()[pri:0, instance:Patrol.Test.exstingContact_casedetailspage@2ff95fc6]" started-at="2025-03-12T18:03:33 IST" name="sendEmailAfterExecution" finished-at="2025-03-12T18:03:33 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sendEmailAfterExecution -->
-      </class> <!-- Patrol.Test.exstingContact_casedetailspage -->
+      </class> <!-- Patrol.Test.RelatedMattersforHC -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

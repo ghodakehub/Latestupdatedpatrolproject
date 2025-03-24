@@ -1,9 +1,0 @@
-element click intercepted: Element is not clickable at point (462, 2077)
-  (Session info: chrome=133.0.6943.142)
-Build info: version: '4.16.1', revision: '9b4c83354e'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [757691f868cb38ff3de6f8069d643ceb, clickElement {id=f.E604C2F9D6455A6DBE0279F7F8F6D946.d.5B08C6F9DFE711193002DC543B4A11DD.e.174}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 133.0.6943.142, chrome: {chromedriverVersion: 133.0.6943.141 (2a5d6da0d61..., userDataDir: C:\Users\Super\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63029}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63029/devtoo..., se:cdpVersion: 133.0.6943.142, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (757691f868cb38ff3de6f8069d643ceb)] -> xpath: //*[@id="tableBody"]/tr/td[2]/a]
-Session ID: 757691f868cb38ff3de6f8069d643ceb

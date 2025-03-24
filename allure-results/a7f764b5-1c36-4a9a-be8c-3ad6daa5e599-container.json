@@ -1,1 +1,0 @@
-{"uuid":"a7f764b5-1c36-4a9a-be8c-3ad6daa5e599","name":"Default suite","children":["35eb93fc-069d-4784-91e8-04386a3d335a"],"befores":[],"afters":[{"name":"generatePdfAndSendEmail","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1741429351126,"stop":1741429351127}],"start":1741429186221,"stop":1741429351129}

@@ -44,7 +44,7 @@ public class casedetaisltabstest extends NewBaseTest {
 		        create.createMatter("pharma1", "testing department", "Administrative", "Open", "Hourly");
 
 		        // Verify if matter is added successfully
-		        boolean isMatterAdded = create.verifymatters("MOSHIN ABDUL SAYYED vs. THE STATE OF MAHARASTRA THROUGH MAHARASHTRA ELECTRICITY REGULATORY COMMISSION GOVERNMENT AUTHORITY");
+		        boolean isMatterAdded = create.verifyMatter("MOSHIN ABDUL SAYYED vs. THE STATE OF MAHARASTRA THROUGH MAHARASHTRA ELECTRICITY REGULATORY COMMISSION GOVERNMENT AUTHORITY");
 
 		        if (!isMatterAdded) {
 		            throw new AssertionError("Matter verification failed!");

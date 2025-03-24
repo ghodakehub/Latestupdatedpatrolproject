@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Patrol.Test.CreateContact_Casedetials">
+      <class name="Patrol.Test.RelatedMattersforHC">
         <methods>
           <include name="launchBrowser"/>
           <include name="closeBrowser"/>
-          <include name="allcasedetails"/>
-          <include name="sendEmailAfterExecution"/>
+          <include name="verifyInvoice"/>
         </methods>
-      </class> <!-- Patrol.Test.CreateContact_Casedetials -->
+      </class> <!-- Patrol.Test.RelatedMattersforHC -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

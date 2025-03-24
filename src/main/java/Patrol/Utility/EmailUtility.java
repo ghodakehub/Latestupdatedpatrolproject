@@ -86,6 +86,9 @@ public class EmailUtility {
 	        customMessage.append("<br><b>Attached Screenshots Below:</b><br>");
 	    }
 
+	    
+	    
+	    
 	    EmailUtility.sendEmailWithAttachment(subject, customMessage.toString(), recipients, screenshotBytesList);
 	}
 }
